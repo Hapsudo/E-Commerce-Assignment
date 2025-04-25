@@ -1,7 +1,7 @@
 GROUP 87 LMS # E-Commerce-Assignment
 Members/Collaborators
 1. Catherina Abugah - catherine.abugah8@gmail.com
-2. David Nganga - 
+2. David Nganga - dngangajm@gmail.com
 
 🛒 E-Commerce SQL Database
 This project is an SQL-based relational database design for a fictional e-commerce platform. It models key elements such as products, brands, colors, sizes, variations, and attributes in a structured and scalable way using MySQL.
