@@ -48,6 +48,52 @@ INSERT INTO product (productName, brand, basePrice,category_id) VALUES
 ('Skinny Jeans', 'H&M', 34.99,10002),
 ('Relaxed Fit Jeans', 'Gap', 59.00,10002);
 
+-- product_image table
+
+USE e_commerce;
+CREATE TABLE product_image(
+id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+imageUrl VARCHAR (500) NOT NULL
+);
+ALTER TABLE product_image
+AUTO_INCREMENT = 701;
+
+INSERT INTO product_image(imageUrl) VALUES 
+("https://unsplash.com/photos/green-crew-neck-shirt-and-gray-crew-neck-shirt-itUsEU7GgDU"),
+("https://unsplash.com/photos/a-pair-of-hands-holding-a-pair-of-jeans-WBnjmUWwqVo"),
+("https://unsplash.com/photos/a-man-in-a-blue-hoodie-sitting-on-a-bench-WWcxE-MkhNw"),
+("https://unsplash.com/photos/woman-in-blue-and-white-floral-spaghetti-strap-dress-rp9ZsjEbFvI"),
+("https://unsplash.com/photos/blue-polo-shirt-on-pink-textile-OsvD4y41C4g"),
+("https://unsplash.com/photos/a-woman-in-a-black-shirt-and-blue-jeans-IpQA-Yp0iW0"),
+("http://unsplash.com/photos/a-woman-in-a-green-jacket-and-sunglasses-D4S75Z1bcsU"),
+("https://www.istockphoto.com/photo/old-worn-jean-shorts-gm499721799-42786948"),
+("https://unsplash.com/photos/a-woman-standing-with-her-hands-on-her-hips-cmzbt8xRn_c"),
+("http://unsplash.com/photos/a-woman-in-a-trench-coat-posing-for-a-picture-5vrque5NVHI"),
+("https://unsplash.com/photos/a-black-and-white-photo-of-a-pair-of-shoes-9VGRc6rfSsA"),
+("https://unsplash.com/photos/a-pair-of-white-and-black-lacoste-sneakers-vsDTDkRvnzo"),
+("https://unsplash.com/photos/close-up-of-legs-of-unrecognizable-man-running-in-the-town-puddle-aHYzV-ezdis"),
+("https://unsplash.com/photos/man-in-black-and-white-nike-shoes-and-black-pants-jABGwGQbzNU"),
+("https://unsplash.com/photos/white-and-orange-nike-athletic-shoes-b9KdwnKWhRk"),
+("https://unsplash.com/photos/a-pair-of-shoes-sitting-on-top-of-a-wooden-table-sJGlVPtFIJ4"),
+("https://unsplash.com/photos/a-pair-of-new-balance-shoes-sitting-on-a-wooden-floor-djb1b4zmsN8"),
+("https://unsplash.com/photos/a-hand-holds-a-pair-of-cream-colored-sneakers-mLntf5GgqhM"),
+("https://unsplash.com/photos/a-close-up-of-a-person-wearing-a-pair-of-boots-7hD5_5GfYcA"),
+("https://unsplash.com/photos/white-and-black-nike-athletic-shoe-XJUWWhAbcCY"),
+("https://unsplash.com/photos/a-green-knitted-piece-of-clothing-GcSXNqXdPOk"),
+("https://unsplash.com/photos/a-young-girl-wearing-a-striped-sweater-and-pink-pants-eCq75xc4UWo"),
+("https://unsplash.com/photos/a-woman-wearing-a-white-sweater-and-a-white-scarf-bb2nq11CePs"),
+("https://unsplash.com/photos/a-woman-wearing-a-sweater-and-a-tie-tK6mBrIkCOs"),
+("https://unsplash.com/photos/a-woman-in-a-blue-dress-posing-for-a-picture-hBOzoT0iPt4"),
+("https://unsplash.com/photos/man-in-red-crew-neck-shirt-wearing-silver-necklace-EuB4kTlgdq4"),
+("https://unsplash.com/photos/a-woman-standing-against-a-wall-wearing-a-sweatshirt-and-ripped-jeans-mOSOF13-lJQ"),
+("https://unsplash.com/photos/a-person-holding-a-green-sweater-on-a-hanger-daxK3rjWHm0"),
+("https://unsplash.com/photos/woman-standing-wearing-jeans-and-white-top-zDyJOj8ZXG0"),
+("https://unsplash.com/photos/a-persons-legs-and-shoes-WN6NdH8uURQ"),
+("https://unsplash.com/photos/a-woman-in-a-black-t-shirt-and-light-blue-jeans-Qg7sSD7190g"),
+("https://unsplash.com/photos/a-woman-leaning-against-a-wall-wearing-a-black-top-jtwPgruwXmM"),
+("https://unsplash.com/photos/a-couple-of-people-that-are-sitting-on-a-chair-3VcJKrQ_PzM"),
+("http://unsplash.com/photos/a-woman-standing-in-a-doorway-with-her-hands-on-her-hips-hizcQ28c4Oo");
+
 -- category table
 USE e_commerce;
 CREATE TABLE category(
@@ -115,13 +161,13 @@ INSERT INTO brand (brandName) VALUES
 ('Gap');
  
  -- size_option table
- USE e_commerce;
+USE e_commerce;
 CREATE TABLE size_option (
-    size_id INT PRIMARY KEY AUTO_INCREMENT,
-    size_value VARCHAR(20) NOT NULL , 
-    _description VARCHAR(255),          -
-    category_id INT,
-    FOREIGN KEY (category_id) REFERENCES category(category_id)
+size_id INT PRIMARY KEY AUTO_INCREMENT,
+size_value VARCHAR(20) NOT NULL , 
+_description VARCHAR(255),          
+category_id INT,
+FOREIGN KEY (category_id) REFERENCES category(category_id)
 );
 
 ALTER TABLE size_option
@@ -161,3 +207,135 @@ INSERT INTO size_option (size_value, _description, category_id) VALUES
 ('S', 'Small', 10009),
 ('M', 'Medium', 10009),
 ('L', 'Large', 10009);
+
+-- variation table
+USE e_commerce;
+CREATE TABLE variation (
+variationId INT PRIMARY KEY AUTO_INCREMENT,
+style VARCHAR (100) NOT NULL,
+color VARCHAR (100) NOT NULL,
+size VARCHAR (100) NOT NULL
+);
+ALTER TABLE variation
+AUTO_INCREMENT = 4001
+
+INSERT INTO variation (style,color,size) VALUES 
+('Running Shoes', 'Electric Blue', 'US 9.5'),
+('Leather Boots', 'Dark Brown', 'US 42'),
+('Canvas Sneakers', 'Off-White', 'US 7'),
+('Canvas Sneakers', 'Off-black', 'US 10'),
+('Suede Loafers', 'Burgundy', 'US 8'),
+('Athletic Sandals', 'Black/Grey', 'US 10'),
+('Dress', 'Black', 'S'),
+('Outerwear', 'Black', 'M'),
+('Pants', 'Blue', '30'),
+('Shirt', 'White', 'L'),
+('Shorts', 'Khaki', '32'),
+('Sneakers', 'White/Red', 'US 8'),
+('Sweater', 'Grey', 'M'),
+('Sweatshirt & Hoodie', 'Navy', 'L'),
+('Top', 'Striped', 'S'),
+('Dress', 'Floral Print', 'S'),
+('Dress', 'Black', 'M'),
+('Dress', 'Red', 'L'),
+('Dress', 'Yellow', 'XS'),
+('Dress', 'Navy', '6'),
+('Pants', 'SkyBlue Denim', '30x32'),
+('Pants', 'Blue Denim', '30x32');
+
+-- product_variation table
+USE e_commerce;
+CREATE TABLE product_variation(
+id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+productId INT,
+variationId INT,
+FOREIGN KEY(productId) REFERENCES product(productId),
+FOREIGN KEY(variationId) REFERENCES variation(variationId)
+);
+ALTER TABLE product_variation
+AUTO_INCREMENT = 20001;
+
+INSERT INTO product_variation (productId,variationId) VALUES
+(1001,4010),
+(1001,4014),
+(1002,4008),
+(1006,4008),
+(1003, 4013),
+(1019, 4002),
+(1020, 4001),
+(1011, 4001),
+(1011,4011),
+(1016, 4003),
+(1017,4005),
+(1004, 4015),
+(1004, 4019),
+(1007, 4007),
+(1023, 4014),
+(1022, 4022),
+(1021, 4012),
+(1019, 4002),
+(1018, 4003),
+(1021, 4012),
+(1021, 4021);
+
+--product_attribute table
+use e_commerce;
+CREATE TABLE product_attribute(
+attributeId INT PRIMARY KEY AUTO_INCREMENT,
+style VARCHAR(100) NOT NULL,
+material VARCHAR(100) NOT NULL,
+color VARCHAR(50) NOT NULL,
+size VARCHAR (100) NOT NULL
+);
+ALTER TABLE product_attribute
+AUTO_INCREMENT = 6001;
+
+INSERT INTO product_attribute (style, material, color, size) VALUES
+('Sneakers', 'Canvas', 'White', '9'),
+('Boots', 'Leather', 'Brown', '10'),
+('Sandals', 'Synthetic', 'Black', '7'),
+('Flats', 'Suede', 'Beige', '8'),
+('Running Shoes', 'Mesh', 'Blue/Grey', '11'),
+('Heels', 'Patent Leather', 'Red', '6'),
+('Loafers', 'Leather', 'Black', '9.5'),
+('Hiking Boots', 'Leather/Textile', 'Brown/Green','7'),
+('Flip-flops', 'Rubber', 'Navy','7'),
+('Dress Shoes', 'Leather', 'Black', '9'),
+('T-shirt', 'Cotton', 'Navy Blue', 'M'),
+('Dress', 'Polyester', 'Floral Print', 'S'),
+('Pants', 'Denim', 'Dark Wash', '32'),
+('Skirt', 'Cotton', 'Red', '8'),
+('Sweater', 'Wool', 'Grey', 'L'),
+('Jacket', 'Leather', 'Black', 'M'),
+('T-shirt', 'Cotton Blend', 'White', 'XL'),
+('Dress', 'Silk', 'Emerald Green', '6'),
+('Pants', 'Linen', 'Beige', '30'),
+('Skirt', 'Denim', 'Light Wash', '10');
+
+-- attribute_type table
+USE e_commerce;
+CREATE TABLE attribute_type(
+id INT PRIMARY KEY AUTO_INCREMENT,
+attributeType VARCHAR (50) NOT NULL
+);
+ALTER TABLE attribute_type
+AUTO_INCREMENT = 1;
+
+INSERT INTO attribute_type(attributeType) VALUES 
+("TEXT"),
+("TEXT"),
+("TEXT"),
+("NUMBER");
+
+-- size category table
+USE e_commerce;
+CREATE TABLE size_category(
+id INT PRIMARY KEY AUTO_INCREMENT,
+sizeCategory VARCHAR (50) NOT NULL
+);
+
+ALTER TABLE size_category
+AUTO_INCREMENT = 1;
+INSERT INTO size_category(sizeCategory) VALUES 
+("clothing sizes"),
+("shoe sizes");
